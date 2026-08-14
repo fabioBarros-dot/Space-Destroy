@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2085496098989900839}
   - component: {fileID: 6386219223262969603}
   - component: {fileID: -5930300548531874554}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Asteroide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73e5b4d13c47b64996dd7ddf723e8c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  minSize: 0.5
+  maxSize: 2
+  rb: {fileID: 0}
+  minSpeed: 100
+  maxSpeed: 250
+  minTorque: -40
+  maxTorque: 40
 --- !u!60 &-5930300548531874554
 PolygonCollider2D:
   m_ObjectHideFlags: 0
