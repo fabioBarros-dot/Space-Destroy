@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 888962291091697694}
   - component: {fileID: 3459021458650001466}
   - component: {fileID: 2085496098989900839}
-  - component: {fileID: 6386219223262969603}
   - component: {fileID: -5930300548531874554}
+  - component: {fileID: -4588812915114866616}
   m_Layer: 3
   m_Name: Asteroide
   m_TagString: Untagged
@@ -121,25 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6386219223262969603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3097952325703188317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73e5b4d13c47b64996dd7ddf723e8c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  minSize: 0.5
-  maxSize: 2
-  rb: {fileID: 0}
-  minSpeed: 100
-  maxSpeed: 250
-  minTorque: -40
-  maxTorque: 40
 --- !u!60 &-5930300548531874554
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +131,7 @@ PolygonCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0e7af68b721631a4a86bceaa6d673899, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -205,3 +186,21 @@ PolygonCollider2D:
       - {x: 0.64, y: -0.34}
       - {x: 0.64, y: 0.03}
   m_UseDelaunayMesh: 1
+--- !u!114 &-4588812915114866616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097952325703188317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73e5b4d13c47b64996dd7ddf723e8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacles
+  minSize: 0.5
+  maxSize: 2
+  rb: {fileID: 0}
+  minSpeed: 50
+  maxSpeed: 150
+  maxSpinSpeed: 10

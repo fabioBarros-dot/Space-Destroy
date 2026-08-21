@@ -7,10 +7,9 @@ public class Obstacles : MonoBehaviour
     public float minSize = 0.5f; // Minimum size of the obstacle
     public float maxSize = 2f; // Maximum size of the obstacle
     public Rigidbody2D rb; // Reference to the Rigidbody2D component of the obstacle
-    public float minSpeed = 10f;   
-    public float maxSpeed = 30f; // Speed of the obstacle's movement
-    public float minTorque = -40f; // Minimum torque value for the obstacle
-    public float maxTorque = 40f; // Maximum torque value for the obstacle
+    public float minSpeed = 50f;   
+    public float maxSpeed = 150f; // Speed of the obstacle's movement
+    public float maxSpinSpeed = 10f; // Maximum spin speed of the obstacle
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,9 +19,9 @@ public class Obstacles : MonoBehaviour
 
         float randomSpeed = Random.Range(minSpeed, maxSpeed);
         
-        float randomTorque = Random.Range(minTorque, maxTorque); // Generate a random torque value for the obstacle
+        float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed); // Generate a random torque value for the obstacle
 
-        Vector2 randomDirection = Random.insideUnitCircle * 2;
+        Vector2 randomDirection = Random.insideUnitCircle;
 
         transform.localRotation = Quaternion.Euler(1, 1, randomTorque);
 

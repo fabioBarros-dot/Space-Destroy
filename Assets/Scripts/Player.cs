@@ -1,39 +1,30 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f; // Speed of the player movement
+    public Animator animator;
     public Rigidbody2D rb; // Reference to the Rigidbody2D component of the player
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Freeze the rotation of the player to prevent it from rotating
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Mouse.current.leftButton.isPressed)
         {
-            transform.Translate(speed * Time.deltaTime * Vector2.up);
-        }
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
+            Debug.Log("Mouse Position: " + mousePos);
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(speed * Time.deltaTime * Vector2.down);
-        }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(speed * Time.deltaTime * Vector2.left);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(speed * Time.deltaTime * Vector2.right);
         }
     }
 
