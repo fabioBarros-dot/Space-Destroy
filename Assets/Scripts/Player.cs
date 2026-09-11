@@ -11,11 +11,14 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 5f; // Maximum speed of the player
 
     public float elapsedTime = 0f; // Time elapsed since the last frame
-    private float score = 0f; // Player's score 
+    private float score = 100000f; // Player's score 
     public float scoreMultiplier = 10f; // Multiplier for the score based on elapsed time
 
     public UIDocument uiDocument; // Reference to the UI Document component
     private Label scoreText; // Reference to the score label in the UI
+
+    public GameObject tiroPrefab; // Prefab of the projectile to be instantiated
+    public Transform firepoint; // Transform of the firepoint where the projectile will be instantiated
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,7 +52,11 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed; // Limit the player's speed to maxSpeed
+        }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            Instantiate(tiroPrefab, firepoint.position, firepoint.rotation); // Instantiate the projectile at the firepoint's position and rotation
         }
 
         elapsedTime += Time.deltaTime; // Update the elapsed time since the last frame
