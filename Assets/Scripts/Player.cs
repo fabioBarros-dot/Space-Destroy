@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 5f; // Maximum speed of the player
 
     public float elapsedTime = 0f; // Time elapsed since the last frame
-    private float score = 100000f; // Player's score 
+    private float score = 0f; // Player's score 
     public float scoreMultiplier = 10f; // Multiplier for the score based on elapsed time
 
     public UIDocument uiDocument; // Reference to the UI Document component
@@ -20,6 +21,11 @@ public class PlayerController : MonoBehaviour
     public GameObject tiroPrefab; // Prefab of the projectile to be instantiated
     public Transform firepoint; // Transform of the firepoint where the projectile will be instantiated
 
+    public GameObject explosionEffect;
+    private Button restartbutton;
+
+    public GameObject bounceEffectPrefab; // Prefab of the bounce effect to be instantiated
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +33,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel"); // Get the score label from the UI Document
+        restartbutton = uiDocument.rootVisualElement.Q<Button>("RestartButton"); // Get the restart button from the UI Document
+        restartbutton.style.display = DisplayStyle.None; // Hide the restart button initially
+        restartbutton.clicked += ReloadScene; // Add a listener to the restart button to reload the scene when clicked
     }
 
     // Update is called once per frame
@@ -49,6 +58,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving", false); // Set the "isMoving" parameter to false in the Animator
         } 
 
+        elapsedTime += Time.deltaTime; // Update the elapsed time since the last frame
+        score = elapsedTime * scoreMultiplier; // Update the player's score based on elapsed time and score multiplier
+        score = Mathf.FloorToInt(elapsedTime * scoreMultiplier); // Round the score down to the nearest integer
+        scoreText.text = "Score: " + score;
+
         if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed; // Limit the player's speed to maxSpeed
@@ -58,12 +72,6 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(tiroPrefab, firepoint.position, firepoint.rotation); // Instantiate the projectile at the firepoint's position and rotation
         }
-
-        elapsedTime += Time.deltaTime; // Update the elapsed time since the last frame
-        score = elapsedTime * scoreMultiplier; // Update the player's score based on elapsed time and score multiplier
-        score = Mathf.FloorToInt(elapsedTime * scoreMultiplier); // Round the score down to the nearest integer
-        scoreText.text = "Score: " + score;
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -71,6 +79,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject); // Destroy the player object when it collides with an obstacle
+            Instantiate(explosionEffect, transform.position, transform.rotation); // Instantiate the explosion effect at the player's position
+            restartbutton.style.display = DisplayStyle.Flex; // Show the restart button when the player is destroyed
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

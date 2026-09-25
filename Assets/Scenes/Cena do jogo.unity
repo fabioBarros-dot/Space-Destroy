@@ -147,6 +147,38 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 30
   maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 0}
+--- !u!1 &114857454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114857455}
+  m_Layer: 0
+  m_Name: PontoDisparo
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114857455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114857454}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.64672, y: -0.12536025, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 198271700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152831593
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +192,7 @@ GameObject:
   - component: {fileID: 152831596}
   m_Layer: 0
   m_Name: Border Right
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +331,7 @@ GameObject:
   - component: {fileID: 198271697}
   - component: {fileID: 198271702}
   - component: {fileID: 198271703}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +522,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -3.5362997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 114857455}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &198271702
@@ -534,6 +567,10 @@ MonoBehaviour:
   elapsedTime: 0
   scoreMultiplier: 10
   uiDocument: {fileID: 1649369740}
+  tiroPrefab: {fileID: 9098454875698963752, guid: 3558f0182e956404ea8c6e11ac62e690, type: 3}
+  firepoint: {fileID: 114857455}
+  explosionEffect: {fileID: 2002782902744699708, guid: 4daff784f93af6d4a8da7fc990caa267, type: 3}
+  bounceEffectPrefab: {fileID: 0}
 --- !u!4 &391578211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
@@ -558,11 +595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.14
+      value: 5.59
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.11
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -636,11 +673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.53
+      value: -4.31
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.46
+      value: 4.29
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -708,7 +745,7 @@ GameObject:
   - component: {fileID: 784473632}
   m_Layer: 0
   m_Name: Border Down
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,6 +893,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 30
   maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 0}
 --- !u!1 &923849633
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +1001,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 30
   maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 0}
 --- !u!1 &954794375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,11 +1088,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.23
+      value: 8.72
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.44
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1127,11 +1166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.37
+      value: -5.76
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.31
+      value: -5.05
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1401,6 +1440,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 30
   maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 0}
 --- !u!1 &1701541369 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3097952325703188317, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
@@ -1424,6 +1464,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 30
   maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 0}
 --- !u!1001 &1990131299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1438,11 +1479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.91
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.23
+      value: -5.02
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1525,6 +1566,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 30
   maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 0}
 --- !u!1 &2039072230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1580,7 @@ GameObject:
   - component: {fileID: 2039072233}
   m_Layer: 0
   m_Name: Border Left
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1676,7 +1718,7 @@ GameObject:
   - component: {fileID: 2079485795}
   m_Layer: 0
   m_Name: Border Up
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1811,11 +1853,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.67
+      value: -8.06
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 888962291091697694, guid: 5f185717136e5a848abd539bd1595b3b, type: 3}
       propertyPath: m_LocalPosition.z

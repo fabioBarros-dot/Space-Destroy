@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4979913481678884508}
   - component: {fileID: -8591516194572690791}
   - component: {fileID: 7704998308160747018}
+  - component: {fileID: -6780065899448704834}
   m_Layer: 6
   m_Name: Atirar
   m_TagString: Tiro
@@ -172,3 +173,16 @@ PolygonCollider2D:
       - {x: 0.099999994, y: -0.55}
       - {x: 0.099999994, y: 0.55}
   m_UseDelaunayMesh: 1
+--- !u!114 &-6780065899448704834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9098454875698963752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9975e3c72abb94f45b64d8737abf4fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TiroNave
+  velocidadeTiro: 10
